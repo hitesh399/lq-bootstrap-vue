@@ -24,9 +24,9 @@ export default Input.extend({
         __init() {
             if (this.checked) {
                 if (typeof this.checked === 'boolean') {
-                    this.setValue(this.value, true, true)
+                    this.setValue(this.value, true, false, false)
                 } else if (this.checked) {
-                    this.setValue(this.checked, true, true)
+                    this.setValue(this.checked, true, false, false)
                 }
             }
         },

@@ -1,7 +1,13 @@
 <template>
     <div>
-        <lq-b-form name="test_form" :rules="rules" ref="lqForm" action="http://localhost:8080">
-            <template v-slot="{model, submit}">
+        <lq-b-form
+            :transform-keys="['username:email']"
+            name="test_form"
+            :rules="rules"
+            ref="lqForm"
+            action="https://gorest.co.in/public-api/users"
+        >
+            <template v-slot="{model, submit, dirty, canSubmit}">
                 {{model}}
                 <!-- <lq-b-form-input id="_text_field" /> -->
                 <!-- <b-row class="my-1" v-for="type in types" :key="type">
@@ -31,6 +37,7 @@
                     name="plain-stacked"
                 ></lq-b-form-radio-group>
                 <lq-b-form-select id="selected" :value="{ C: '3PO' }" :options="select_options"></lq-b-form-select>-->
+                <lq-b-form-input id="username" />
                 <lq-b-form-checkbox
                     id="status"
                     index="1"
@@ -38,7 +45,7 @@
                     description="Jqhsgdjhgjg eqdfqwdhgweqhjfd"
                 >I accept the terms and use</lq-b-form-checkbox>
 
-                <lq-b-form-checkbox-group
+                <!-- <lq-b-form-checkbox-group
                     label="Using options array:"
                     id="checkbox_group_1"
                     :options="radio_options"
@@ -52,11 +59,11 @@
                         <b-form-checkbox value="grape">Grape</b-form-checkbox>
                     </lq-b-form-checkbox-group>
                 </b-form-group>
-                <lq-b-form-file id="_file" :file-name-formatter="formatNames" />
-                <button type="submit">Submit</button>
+                <lq-b-form-file id="_file" :file-name-formatter="formatNames" />-->
+                <button :disabled="!dirty || !canSubmit()" type="submit">Submit</button>
             </template>
         </lq-b-form>
-        <lq-b-table
+        <!-- <lq-b-table
             action="https://gorest.co.in/public-api/users"
             tableName="_test_table"
             data-key="data.result"
@@ -89,7 +96,7 @@
                     <span class="sr-only">Not selected</span>
                 </template>
             </template>
-        </lq-b-table>
+        </lq-b-table>-->
     </div>
 </template>
 <script>
@@ -141,6 +148,9 @@ export default {
                     presence: { allowEmpty: false }
                 },
                 checkbox_group_2: {
+                    presence: { allowEmpty: false }
+                },
+                username: {
                     presence: { allowEmpty: false }
                 }
                 // date_of_birth: {presence: {allowEmpty: false}},

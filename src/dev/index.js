@@ -20,7 +20,22 @@ Object.defineProperty(
     }
 );
 // Vue.use(VueCroppie)
-Vue.use(lqForm, { store })
+Vue.use(lqForm, {
+    store, 
+    afterRequestResolved: function (response) {
+        // console.log('Test Form Submit....', response)
+        let code = helper.getProp(response, 'data._meta.code')
+        if (code === 422) {
+            let result =  helper.getProp(response, 'data.result')
+            let errors  = {}
+            result.forEach((error) => {
+                errors[error.field] = [error.message]
+            })
+            this.compliesErrors(errors);
+            this.addErrors(errors);
+        }
+    }
+})
 
 // Vue.use(ElementUI, {locale});
 

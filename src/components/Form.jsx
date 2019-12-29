@@ -22,7 +22,7 @@ export default Vue.extend({
             attrs: Object.assign({
                 novalidate: true
             }, this.$attrs),
-        }, this.$scopedSlots.default({
+        }, this.$scopedSlots.default ? this.$scopedSlots.default({
             model: this.formValues,
             errors: this.formErrors,
             push: this.push,
@@ -30,7 +30,9 @@ export default Vue.extend({
             unshift: this.unshift,
             submit: this.submit,
             remove: this.remove,
+            dirty: this.dirty,
+            canSubmit: this.canSubmit,
             removeError: this.removeError,
-        }))
+        }) : [null])
     }
 })

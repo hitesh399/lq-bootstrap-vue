@@ -1,6 +1,6 @@
 {
   "name": "lq-bootstrap-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "serve": "vue-cli-service serve src/dev/index.js",
     "build-bundle": "vue-cli-service build --target lib --name lq-bootstrap-vue src/main.js",

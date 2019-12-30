@@ -44,7 +44,16 @@
                     value="accepted"
                     description="Jqhsgdjhgjg eqdfqwdhgweqhjfd"
                 >I accept the terms and use</lq-b-form-checkbox>
-
+                <lq-b-form-file id="profileImage" size="sm">
+                    <template slot="file-name" slot-scope="{ names }">
+                        <b-badge variant="dark">{{ names[0] }}</b-badge>
+                        <b-badge
+                            v-if="names.length > 1"
+                            variant="dark"
+                            class="ml-1"
+                        >+ {{ names.length - 1 }} More files</b-badge>
+                    </template>
+                </lq-b-form-file>
                 <!-- <lq-b-form-checkbox-group
                     label="Using options array:"
                     id="checkbox_group_1"
@@ -60,7 +69,9 @@
                     </lq-b-form-checkbox-group>
                 </b-form-group>
                 <lq-b-form-file id="_file" :file-name-formatter="formatNames" />-->
-                <button :disabled="!dirty || !canSubmit()" type="submit">Submit</button>
+                <button type="submit">Submit</button>
+                <button type="button" @click="init">Init Value</button>
+                <button type="button" @click="reset">Reset</button>
             </template>
         </lq-b-form>
         <!-- <lq-b-table
@@ -140,6 +151,11 @@ export default {
                 { key: 'status', sortable: true },
                 { key: 'gender', sortable: true }
             ],
+            initializeValue: {
+                status: 'accepted',
+                username: 'Iam akjdsd',
+                profileImage: 'https://i.picsum.photos/id/967/200/300.jpg'
+            },
             rules: {
                 status: {
                     presence: { allowEmpty: false }
@@ -152,6 +168,13 @@ export default {
                 },
                 username: {
                     presence: { allowEmpty: false }
+                },
+                profileImage: {
+                    file: {
+                        required: true,
+                        maxFileSize: 2.06,
+                        acceptedFiles: ['.zip']
+                    }
                 }
                 // date_of_birth: {presence: {allowEmpty: false}},
                 // date_of_birth2: { presence: { allowEmpty: false } },
@@ -203,6 +226,12 @@ export default {
             } else {
                 return `${files.length} files selected`;
             }
+        },
+        init() {
+            this.$lqForm.initializeValues('test_form', this.initializeValue);
+        },
+        reset() {
+            this.$lqForm.resetForm('test_form');
         }
     }
 };

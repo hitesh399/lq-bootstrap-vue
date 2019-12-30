@@ -102,7 +102,6 @@ export default DirectInput.extend({
          * @param {any} value 
          */
         onInput(value) {
-            
             if (!this.touch) {
                 this.touchStatus(true);
             }

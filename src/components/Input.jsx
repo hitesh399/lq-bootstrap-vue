@@ -24,6 +24,10 @@ export default DirectInput.extend({
         if (!this.insideFormGroup) {
             return i
         }
+        const slotData = {error: this.elError, value: this.LQElement}
+
+        const before = this.$scopedSlots.before ? this.$scopedSlots.before(slotData) : null
+        const after = this.$scopedSlots.after ? this.$scopedSlots.after(slotData) : null
         return createElement(
             'lq-b-form-group',
             {
@@ -54,7 +58,7 @@ export default DirectInput.extend({
                     validFeedback: props => this.$scopedSlots.validFeedback ? this.$scopedSlots.validFeedback(props) : null,
                 },
             },
-            [i]
+            [before, i, after]
         )
     },
     props: {
@@ -88,7 +92,7 @@ export default DirectInput.extend({
                 ...this.$attrs,
                 disabled: this.isDisabled,
                 name: this.id,
-                state: this.state || this.elError ? (this.elError ? false : true) : undefined,
+                state: ((this.state || this.elError) && this.touch) ? (this.elError ? false : true) : null,
             }
         },
         getProps() {

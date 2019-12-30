@@ -37,7 +37,8 @@
                     name="plain-stacked"
                 ></lq-b-form-radio-group>
                 <lq-b-form-select id="selected" :value="{ C: '3PO' }" :options="select_options"></lq-b-form-select>-->
-                <lq-b-form-input id="username" />
+                <lq-b-form-input id="username"  >
+                </lq-b-form-input>
                 <lq-b-form-checkbox
                     id="status"
                     index="1"

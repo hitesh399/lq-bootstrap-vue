@@ -10,6 +10,7 @@
             <template v-slot="{model, submit, dirty, canSubmit}">
                 {{model}}
                 <lq-b-form-phone id="phone" defaultCountryCode="IN" />
+                <lq-b-form-phone-or-text id="_phone_or_text" label="Email Or Mobile Number" defaultCountryCode="IN" />
                 {{yourValue}}
                 <!-- <lq-b-form-input id="_text_field" /> -->
                 <!-- <b-row class="my-1" v-for="type in types" :key="type">

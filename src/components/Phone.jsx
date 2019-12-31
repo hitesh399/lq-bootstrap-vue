@@ -5,6 +5,10 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js'
 export default Input.extend({
     name: 'lq-b-form-phone',
     components: { VuePhoneNumberInput },
+    props: {
+        defaultCountryCode: String,
+        autofocus: Boolean
+    },
     data() {
         return {
             tagName: 'vue-phone-number-input',
@@ -13,6 +17,11 @@ export default Input.extend({
     },
     created() {
         this.$lqForm.addProp(this.lqForm.name, this.id, 'formatter', this.formatter)
+        this.$nextTick(() => {
+            if (this.autofocus && this.$refs.lqel && this.$refs.lqel.$refs) {
+                this.$refs.lqel.$refs.PhoneNumberInput.focusInput()
+            }
+        })
     },
     computed: {
         countryCode() {
@@ -35,7 +44,8 @@ export default Input.extend({
             return {
                 ...this._defaultProps(),
                 value: mn ? mn.nationalNumber : this.LQElement,
-                error: !!this.elError
+                error: !!this.elError,
+                defaultCountryCode: this.countryCode ? this.countryCode : this.defaultCountryCode
             }
         },
         /**

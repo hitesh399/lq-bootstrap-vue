@@ -13,6 +13,7 @@ import FromGroup from './components/FromGroup'
 import Table from './components/Table'
 import Pagination from './components/Pagination'
 import Phone from './components/Phone'
+import PhoneOrText from './components/PhoneOrText'
 
 export default {
     // The install method will be called with the Vue constructor as
@@ -32,5 +33,6 @@ export default {
         Vue.component('lq-b-table', Table)
         Vue.component('lq-b-pagination', Pagination)
         Vue.component('lq-b-form-phone', Phone)
+        Vue.component('lq-b-form-phone-or-text', PhoneOrText)
     }
 }

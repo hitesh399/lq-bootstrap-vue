@@ -10,6 +10,8 @@ module.exports = {
             'date-fns': 'date-fns',
             'lodash/core': 'lodash/core',
             'lodash/cloneDeep': 'lodash/cloneDeep',
+            'vue-phone-number-input': 'vue-phone-number-input',
+            'libphonenumber-js': 'libphonenumber-js',
         }
         config.externals = {
             ...config.externals,

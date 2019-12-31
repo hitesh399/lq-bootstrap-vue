@@ -11,10 +11,16 @@ export default Vue.extend({
             default: () => 'form'
         }
     },
+    provide() {
+        return { lqBForm: this }
+    },
+    data() {
+        return { busy: false }
+    },
     render(createElement) {
         return createElement('form', {
             on: {
-                submit: e => { e.preventDefault(); this.submit() },
+                submit: e => { e.preventDefault(); !this.busy ? this.submit() : null },
                 ...this.$listeners
             },
             staticClass: 'v-form lq-v-form',

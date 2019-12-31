@@ -9,6 +9,8 @@
         >
             <template v-slot="{model, submit, dirty, canSubmit}">
                 {{model}}
+                <lq-b-form-phone id="phone" defaultCountryCode="IN" />
+                {{yourValue}}
                 <!-- <lq-b-form-input id="_text_field" /> -->
                 <!-- <b-row class="my-1" v-for="type in types" :key="type">
                     <b-col sm="3">
@@ -37,7 +39,7 @@
                     name="plain-stacked"
                 ></lq-b-form-radio-group>
                 <lq-b-form-select id="selected" :value="{ C: '3PO' }" :options="select_options"></lq-b-form-select>-->
-                <lq-b-form-input id="username"  >
+                <!-- <lq-b-form-input id="username"  >
                 </lq-b-form-input>
                 <lq-b-form-checkbox
                     id="status"
@@ -54,8 +56,8 @@
                             class="ml-1"
                         >+ {{ names.length - 1 }} More files</b-badge>
                     </template>
-                </lq-b-form-file>
-                <!-- <lq-b-form-checkbox-group
+                </lq-b-form-file> -->
+                <lq-b-form-checkbox-group
                     label="Using options array:"
                     id="checkbox_group_1"
                     :options="radio_options"
@@ -69,7 +71,7 @@
                         <b-form-checkbox value="grape">Grape</b-form-checkbox>
                     </lq-b-form-checkbox-group>
                 </b-form-group>
-                <lq-b-form-file id="_file" :file-name-formatter="formatNames" />-->
+                <lq-b-form-file id="_file" :file-name-formatter="formatNames" />
                 <button type="submit">Submit</button>
                 <button type="button" @click="init">Init Value</button>
                 <button type="button" @click="reset">Reset</button>
@@ -155,8 +157,10 @@ export default {
             initializeValue: {
                 status: 'accepted',
                 username: 'Iam akjdsd',
+                phone: '+91-8808824424',
                 profileImage: 'https://i.picsum.photos/id/967/200/300.jpg'
             },
+            yourValue: '+91-8808824424',
             rules: {
                 status: {
                     presence: { allowEmpty: false }
@@ -168,6 +172,9 @@ export default {
                     presence: { allowEmpty: false }
                 },
                 username: {
+                    presence: { allowEmpty: false }
+                },
+                phone: {
                     presence: { allowEmpty: false }
                 },
                 profileImage: {

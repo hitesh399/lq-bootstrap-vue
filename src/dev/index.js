@@ -9,7 +9,13 @@ import helper from 'vuejs-object-helper'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
-
+// import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
+ 
+// Vue.component('vue-phone-number-input', VuePhoneNumberInput);
+// import 'vue-tel-input/dist/vue-tel-input.css';
+// import VueTelInput from 'vue-tel-input'
+// Vue.component('vue-tel-input', VueTelInput);
 Vue.use(BootstrapVue)
 
 Object.defineProperty(

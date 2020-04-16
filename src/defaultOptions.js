@@ -1,3 +1,4 @@
+
 const lqOptions = {
     options: {
         rowsPerPageItems: [10, 15, 30, 50, 100, 200, 500],
@@ -14,7 +15,6 @@ const lqOptions = {
         ascStr: 'ascending',
         descStr: 'descending',
         pageKey: 'page',
-
         // File Options
         cropperPopupWidth: 400,
         rotateRightIcon: 'fa-repeat',

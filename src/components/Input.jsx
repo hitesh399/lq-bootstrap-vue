@@ -19,15 +19,21 @@ export default DirectInput.extend({
     render: function (createElement) {
 
         if (!this.hasAccess) return null
-        const i = DirectInput.options.render.call(this, createElement);
+        let i = DirectInput.options.render.call(this, createElement);
 
         if (!this.insideFormGroup) {
             return i
         }
-        const slotData = {error: this.elError, value: this.LQElement}
+
+        const slotData = { error: this.elError, value: this.LQElement }
 
         const before = this.$scopedSlots.before ? this.$scopedSlots.before(slotData) : null
         const after = this.$scopedSlots.after ? this.$scopedSlots.after(slotData) : null
+
+
+        let labelClasses = this.LQElement ? [...this.labelClass, ...this.labelFilledClass] : this.labelClass
+        labelClasses = this.isFocused ? [...labelClasses, ...this.labelFocusedClass] : labelClasses
+        // 
         return createElement(
             'lq-b-form-group',
             {
@@ -40,7 +46,7 @@ export default DirectInput.extend({
                     labelFor: this.getDomId(),
                     state: this.elError ? false : true,
                     description: this.description,
-                    labelClass: this.labelClass,
+                    labelClass: labelClasses,
                     labelAlignSm: this.labelAlignSm,
                     labelAlignMd: this.labelAlignMd,
                     labelAlignLg: this.labelAlignLg,
@@ -65,7 +71,18 @@ export default DirectInput.extend({
         label: String,
         labelSize: String,
         description: String,
-        labelClass: [String, Array, Object],
+        labelClass: {
+            type: [String, Array, Object],
+            default: () => ['input-label']
+        },
+        labelFocusedClass: {
+            type: [String, Array, Object],
+            default: () => ['input-label--focused']
+        },
+        labelFilledClass: {
+            type: [String, Array, Object],
+            default: () => ['input-label--filled']
+        },
         labelAlign: String,
         labelAlignSm: String,
         labelAlignMd: String,
@@ -80,7 +97,7 @@ export default DirectInput.extend({
             default: () => true,
             type: Boolean
         },
-        state: Boolean,
+        state: Boolean
     },
 
     methods: {

@@ -9,17 +9,10 @@
         >
             <template v-slot="{model, submit, dirty, canSubmit}">
                 {{model}}
-                <b-form-input id="username" value="sgdjaggjjahsd sahgdh" v-lq-model="{id: 'username'}" />
-                <b-form-checkbox
-                    id="status"
-                    index="1"
-                    value="accepted"
-                    v-lq-model="{id: 'status'}" 
-                    description="Jqhsgdjhgjg eqdfqwdhgweqhjfd"
-                >I accept the terms and use</b-form-checkbox>
+                
                 <!-- <lq-b-form-phone no-flags show-code-on-list	 id="phone" defaultCountryCode="IN" />
                 <lq-b-form-phone-or-text id="_phone_or_text" label="Email Or Mobile Number" defaultCountryCode="IN" /> -->
-                <!-- <lq-b-form-input id="_text_field" /> -->
+                <lq-b-form-input id="_text_field" label="Test My label" />
                 <!-- <b-row class="my-1" v-for="type in types" :key="type">
                     <b-col sm="3">
                         <label :for="`test_form.type-${type}`">

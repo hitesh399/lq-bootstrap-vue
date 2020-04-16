@@ -9,7 +9,8 @@ export default Vue.extend({
         tag: {
             type: String,
             default: () => 'form'
-        }
+        },
+        staticData: Object
     },
     provide() {
         return { lqBForm: this }
@@ -20,7 +21,7 @@ export default Vue.extend({
     render(createElement) {
         return createElement('form', {
             on: {
-                submit: e => { e.preventDefault(); !this.busy ? this.submit() : null },
+                submit: e => { e.preventDefault(); !this.busy ? this.submit(this.staticData) : null },
                 ...this.$listeners
             },
             staticClass: 'v-form lq-v-form',
@@ -37,6 +38,7 @@ export default Vue.extend({
             submit: this.submit,
             remove: this.remove,
             dirty: this.dirty,
+            isSubmiting: this.isSubmiting,
             canSubmit: this.canSubmit,
             removeError: this.removeError,
         }) : [null])

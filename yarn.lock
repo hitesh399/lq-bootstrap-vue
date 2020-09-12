@@ -1781,11 +1781,6 @@ autoprefixer@^9.5.1:
     postcss "^7.0.23"
     postcss-value-parser "^4.0.2"
 
-awesome-phonenumber@^2.15.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/awesome-phonenumber/-/awesome-phonenumber-2.24.0.tgz#4f9f236cb86c53b8a76ea1ae090680da4bbb3770"
-  integrity sha512-0zrNsYYFywSTLR3RcwgpokESiDH9bEuiEzlEqg9LFbno7F6x86ES8EZA9roLb2jfNdqjK5rCvmxw5/mjdoKkQQ==
-
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -7477,9 +7472,9 @@ node-cache@^4.1.1:
     lodash "^4.17.15"
 
 node-fetch@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-forge@0.9.0:
   version "0.9.0"
@@ -10696,11 +10691,6 @@ vue-eslint-parser@^5.0.0:
     esquery "^1.0.1"
     lodash "^4.17.11"
 
-vue-form-generator@^2.3.4:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/vue-form-generator/-/vue-form-generator-2.3.4.tgz#aa043ea5163ab5c6cc3cc9ab83e7b70dd5e010a9"
-  integrity sha512-gkGLukX2xyVYASVopRVt/v4ZVFpoH+I1j+yRIkJBOR9++UwZTi8yREWydnKukpp/r90SGX68Yzy4OkQrKZHluQ==
-
 vue-functional-data-merge@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vue-functional-data-merge/-/vue-functional-data-merge-3.1.0.tgz#08a7797583b7f35680587f8a1d51d729aa1dc657"
@@ -10760,13 +10750,6 @@ vue-style-loader@^4.1.0:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
-
-vue-tel-input@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/vue-tel-input/-/vue-tel-input-4.1.1.tgz#e0db7740bec972441035a8c3d8372b14b1454312"
-  integrity sha512-Gy+nXHfWw/oIfusiIeVDteOWKDVvN7CZir9xU8RPSNvPkFCrh0Z3S0bL7ZY41y2tJJCl/vihGUs6XtqOiWXOhg==
-  dependencies:
-    awesome-phonenumber "^2.15.0"
 
 vue-template-compiler@^2.6.10:
   version "2.6.11"
